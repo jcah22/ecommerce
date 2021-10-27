@@ -6,8 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "orden")
 public class Orden {
 
     @Id
@@ -17,6 +21,13 @@ public class Orden {
     private Date fechaCreacion;
     private Date fechaRecibida;
     private double total;
+
+
+    @ManyToOne
+    private Usuario usuario;
+
+    @OneToOne(mappedBy = "orden")
+    private DetalleOrden detalle;
 
     public Orden() {
     }
@@ -53,6 +64,14 @@ public class Orden {
         this.fechaCreacion = fechaCreacion;
     }
 
+    public DetalleOrden getDetalle() {
+        return detalle;
+    }
+
+    public void setDetalle(DetalleOrden detalle) {
+        this.detalle = detalle;
+    }
+
     public Date getFechaRecibida() {
         return fechaRecibida;
     }
@@ -69,11 +88,23 @@ public class Orden {
         this.total = total;
     }
 
+    
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
     public String toString() {
         return "Orden [fechaCreacion=" + fechaCreacion + ", fechaRecibida=" + fechaRecibida + ", id=" + id + ", numero="
                 + numero + ", total=" + total + "]";
     }
+
+
 
     
 
