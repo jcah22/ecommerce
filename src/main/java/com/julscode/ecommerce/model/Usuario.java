@@ -54,10 +54,12 @@ public class Usuario {
         this.productos = productos;
     }
 
-    public Usuario() {
-    }
+    
 
  
+
+    public Usuario() {
+    }
 
     public Usuario(Integer id, String nombre, String username, String email, String direccion, String telefono,
             String tipo, String password, List<Producto> productos, List<Orden> ordenes) {
@@ -72,6 +74,8 @@ public class Usuario {
         this.productos = productos;
         this.ordenes = ordenes;
     }
+
+    
 
     public Integer getId() {
         return id;
@@ -136,5 +140,14 @@ public class Usuario {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "Usuario [direccion=" + direccion + ", email=" + email + ", id=" + id + ", nombre=" + nombre
+                + ", ordenes=" + ordenes + ", password=" + password + ", productos=" + productos + ", telefono="
+                + telefono + ", tipo=" + tipo + ", username=" + username + "]";
+    }
+
+    
 
 }
