@@ -1,5 +1,6 @@
 package com.julscode.ecommerce.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.julscode.ecommerce.model.Producto;
@@ -41,6 +42,12 @@ public class ProductoServiceImpl implements  ProductoService{
         productoRepository.deleteById(id);
         
         
+    }
+
+    @Override
+    public List<Producto> findAll() {
+        
+        return productoRepository.findAll();
     }
 
 
